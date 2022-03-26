@@ -1,4 +1,4 @@
-let title;
+let title = "GloAcademy";
 let screens;
 let screenPrice;
 let rollback;
