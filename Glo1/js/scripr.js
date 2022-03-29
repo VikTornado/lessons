@@ -12,13 +12,22 @@ const servicePrice2 = +prompt("Сколько это будет стоить?");
 const fullPrice = screenPrice + servicePrice1 + servicePrice2;
 
 let servicePercentPrice = Math.floor(fullPrice - fullPrice * (rollback / 1000));
-
 console.log(servicePercentPrice);
+
+
+if (fullPrice >= 30000) {
+    console.log("Даем скидку в 10%");
+} else if (fullPrice >= 15000 && fullPrice < 30000) {
+    console.log("Даем скидку в 5%");
+} else if (fullPrice < 15000 && fullPrice >= 0) {
+    console.log("Скидка не предусмотрена");
+} else if (fullPrice < 0) {
+    console.log("Что то пошло не так");
+}
 
 
 console.log("Название проекта " + title + " - тип данных " + (typeof (title)));
 console.log("Какие типы экранов нужно разработать? - " + screens);
-
 console.log("Хочу заработать " + fullPrice + " долларов " + " - тип данных " + (typeof (fullPrice)));
 console.log("Булевое значение " + adaptive + " - тип данных " + (typeof (adaptive)));
 console.log("Длина строки screens - " + screens.length + " символ");
