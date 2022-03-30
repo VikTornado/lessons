@@ -1,40 +1,63 @@
 "use strict";
 
-const title = prompt("Как называется ваш проект?", "GloAcademy");
-const screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
-const screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
-const rollback = Math.floor(Math.random() * 100);
-const adaptive = confirm("Нужен ли адаптив на сайте?");
-const service1 = prompt("Какой дополнительный тип услуги нужен?");
-const servicePrice1 = +prompt("Сколько это будет стоить?");
-const service2 = prompt("Какой дополнительный тип услуги нужен?");
-const servicePrice2 = +prompt("Сколько это будет стоить?");
-
-const fullPrice = screenPrice + servicePrice1 + servicePrice2;
-
-const servicePercentPrice = Math.floor(fullPrice - fullPrice * (rollback / 1000));
-console.log(servicePercentPrice);
+let title = prompt("Как называется ваш проект?", "Калькулятор верстки"),
+    screens = prompt("Какие типы экранов нужно разработать?", "Сложные"),
+    screenPrice = +prompt("Сколько будет стоить данная работа?", 1000),
+    adaptive = confirm("Нужен ли адаптив на сайте?"),
+    servise1 = prompt("Какой дополнительный тип услуги нужен?", "Адаптив"),
+    servicePrice1 = +prompt("Сколько Вы готовы заплатить?", 2000),
+    servise2 = prompt("Какой дополнительный тип услуги нужен?", "Мобильная версия"),
+    servicePrice2 = +prompt("Сколько Вы готовы заплатить?", 3000),
+    fullPrice = screenPrice + servicePrice1 + servicePrice2,
+    procent = 10,
+    result = (fullPrice / 100) * procent;
 
 
-if (fullPrice >= 30000) {
-    console.log("Даем скидку в 10%");
-} else if (fullPrice >= 15000 && fullPrice < 30000) {
-    console.log("Даем скидку в 5%");
-} else if (fullPrice < 15000 && fullPrice >= 0) {
-    console.log("Скидка не предусмотрена");
-} else if (fullPrice < 0) {
-    console.log("Что то пошло не так");
-}
+const showTypeOf = function (variable) {
+    console.log(variable, typeof variable);
+};
+
+const getAllServicePrices = function (price1, price2) {
+    return price1 + price2;
+};
+
+let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+
+const getFullPrice = function (num1, num2) {
+    return num1 + num2;
+};
+const fullPrice1 = getFullPrice(screenPrice + allServicePrices); //fullPrice1
+
+const getTitle = function (str) {
+    return str[0].toUpperCase() + str.slice(1).toLowerCase();
+};
+
+const getServicePercentPrices = function (a, b) {
+    return a - b;
+};
+let servicePercentPrice = getServicePercentPrices(fullPrice, result);
 
 
-console.log("Название проекта " + title + " - тип данных " + (typeof (title)));
-console.log("Какие типы экранов нужно разработать? - " + screens);
-console.log("Хочу заработать " + fullPrice + " долларов " + " - тип данных " + (typeof (fullPrice)));
-console.log("Булевое значение " + adaptive + " - тип данных " + (typeof (adaptive)));
-console.log("Длина строки screens - " + screens.length + " символ");
-console.log("Стоимость верстки экранов " + (screenPrice) + " рублей / долларов / гривен / юани");
-console.log("Стоимость разработки сайта " + (fullPrice) + " рублей / долларов / гривен / юани");
-console.log(screens.toLocaleLowerCase());
-console.log(screens.split(" "));
-console.log("Процент отката посреднику за работу = " + Math.ceil(fullPrice * (rollback / 1000)));
+const getRollbackMessage = function (price) {
+    if (price >= 30000) {
+        console.log("Даем скидку в 10%");
+    } else if (price >= 15000 && price < 30000) {
+        console.log("Даем скидку в 5%");
+    } else if (price < 15000 && price >= 0) {
+        console.log("Скидка не предусмотрена");
+    } else if (price < 0) {
+        console.log("Что то пошло не так");
+    }
+};
 
+
+console.log(`${getTitle(title)}`);
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
+console.log("сумма стоимости верстки и стоимости дополнительных услуг " + fullPrice);
+console.log("разрабатываю " + screens + " типы экранов!");
+console.log("Процент отката посреднику за работу: " + result + " рублей");
+console.log(procent + '% от ' + fullPrice + ' будет ' + result);
+console.log(servicePercentPrice + " итоговая стоимость минус сумма отката");
+console.log(Math.ceil(servicePercentPrice) + " округление суммы");
