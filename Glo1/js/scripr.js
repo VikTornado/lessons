@@ -9,9 +9,10 @@ const service1 = prompt("Какой дополнительный тип услу
 const servicePrice1 = +prompt("Сколько это будет стоить?");
 const service2 = prompt("Какой дополнительный тип услуги нужен?");
 const servicePrice2 = +prompt("Сколько это будет стоить?");
+
 const fullPrice = screenPrice + servicePrice1 + servicePrice2;
 
-let servicePercentPrice = Math.floor(fullPrice - fullPrice * (rollback / 1000));
+const servicePercentPrice = Math.floor(fullPrice - fullPrice * (rollback / 1000));
 console.log(servicePercentPrice);
 
 
