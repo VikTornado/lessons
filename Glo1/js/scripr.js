@@ -106,7 +106,7 @@ const appData = {
             console.log(prop);
         }
         console.log(appData.fullPrice);
-        console.log(Math.floor(appData.servicePercentPrice));
+        console.log(Math.round(appData.servicePercentPrice));
         console.log(appData.screens);
     }
 };
