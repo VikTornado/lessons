@@ -1,5 +1,32 @@
 "use strict";
 
+const titleName = document.getElementsByTagName('h1')[0];
+const btnReset = document.getElementsByClassName('.handler_btn');
+const btnPlus = document.querySelector('.screen-btn');
+const itemPercent = document.querySelector('.other-items.percent');
+const itemNumber = document.querySelector('.other-items.number');
+const range = document.querySelector('.rollback input[type=range]');
+const rangeValue = document.querySelector('.rollback span.range-value');
+const totalInput = document.getElementsByClassName('total-input'),
+    totalInput1 = totalInput[0],
+    totalInput2 = totalInput[1],
+    totalInput3 = totalInput[2],
+    totalInput4 = totalInput[3],
+    totalInput5 = totalInput[4];
+let screenItem = document.querySelectorAll('.screen');
+
+console.log(titleName);
+console.log(btnReset);
+console.log(btnPlus);
+console.log(itemPercent);
+console.log(itemNumber);
+console.log(range);
+console.log(rangeValue);
+console.log(totalInput);
+console.log(screenItem);
+
+
+
 const appData = {
     title: '',
     screens: [],
@@ -106,7 +133,7 @@ const appData = {
             console.log(prop);
         }
         console.log(appData.fullPrice);
-        console.log(Math.round(appData.servicePercentPrice));
+        console.log(appData.servicePercentPrice);
         console.log(appData.screens);
     }
 };
