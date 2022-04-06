@@ -7,12 +7,13 @@ const itemPercent = document.querySelector('.other-items.percent');
 const itemNumber = document.querySelector('.other-items.number');
 const range = document.querySelector('.rollback input[type=range]');
 const rangeValue = document.querySelector('.rollback span.range-value');
-const totalInput = document.getElementsByClassName('total-input'),
-    totalInput1 = totalInput[0],
-    totalInput2 = totalInput[1],
-    totalInput3 = totalInput[2],
-    totalInput4 = totalInput[3],
-    totalInput5 = totalInput[4];
+const totalInput = document.getElementsByClassName('total-input');
+const totalInput0 = document.getElementsByClassName('total-input')[0];
+const totalInput1 = document.getElementsByClassName('total-input')[1];
+const totalInput2 = document.getElementsByClassName('total-input')[2];
+const totalInput3 = document.getElementsByClassName('total-input')[3];
+const totalInput4 = document.getElementsByClassName('total-input')[4];
+
 let screenItem = document.querySelectorAll('.screen');
 
 console.log(titleName);
@@ -22,8 +23,14 @@ console.log(itemPercent);
 console.log(itemNumber);
 console.log(range);
 console.log(rangeValue);
-console.log(totalInput);
 console.log(screenItem);
+
+
+console.log(totalInput0);
+console.log(totalInput1);
+console.log(totalInput2);
+console.log(totalInput3);
+console.log(totalInput4);
 
 
 
@@ -133,8 +140,9 @@ const appData = {
             console.log(prop);
         }
         console.log(appData.fullPrice);
-        console.log(appData.servicePercentPrice);
+        console.log(Math.round(appData.servicePercentPrice));
         console.log(appData.screens);
+
     }
 };
 
